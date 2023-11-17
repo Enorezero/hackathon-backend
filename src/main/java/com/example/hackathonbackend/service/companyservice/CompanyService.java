@@ -16,10 +16,4 @@ public interface CompanyService {
     List<Company> getAllCompanies();
     void deleteCompany(String id);
 
-   void addInternshipByCompany(String companyId, Internship internship);
-   void deleteInternshipByCompany(String companyId, String InternshipId);
-
-
-
-
 }

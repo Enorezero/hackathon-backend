@@ -17,9 +17,6 @@ public class CompanyServiceImpl implements CompanyService {
     @Autowired
     CompanyRepository companyRepository;
 
-    @Autowired
-    InternshipRepository internshipRepository;
-
     @Override
     public void addCompanyByBaseInfo(BaseInfo baseInfo) {
         Company company = new Company();
