@@ -2,23 +2,20 @@ package com.example.hackathonbackend.model;
 
 
 import lombok.Data;
-
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
-public class TraineePersonalInfo {
+@Document("baseinfo")
+public class BaseInfo {
     String surname;
     String name;
     String lastname;
-    String institut;
-    String commercialExpirience;
-    String expirience;
-    String image;
-    String specialize;
-    String contacts;
-    List<Orders> orders;
     String city;
-    String sex;
-    int age;
-
+    String photo;
+    String email;
+    String password;
+    String status;
+    String contact;
+    String aboutUser;
+    String experince;
 }

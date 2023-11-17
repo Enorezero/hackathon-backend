@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:2717/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.2
+      database: hackathon
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
