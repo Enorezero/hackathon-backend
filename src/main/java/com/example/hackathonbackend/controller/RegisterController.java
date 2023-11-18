@@ -1,14 +1,13 @@
 package com.example.hackathonbackend.controller;
 
-import com.example.hackathonbackend.model.Email;
-import com.example.hackathonbackend.service.RegisterService;
+import com.example.hackathonbackend.service.registrationservice.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/register")
+@RequestMapping("/registration")
 public class RegisterController {
 
     @Autowired
@@ -16,17 +15,15 @@ public class RegisterController {
 
     @GetMapping("/{email}")
     ResponseEntity<?> sendCodeToEmail(@PathVariable String email){
-        System.out.println(email);
         registerService.sendToEmail(email);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/test")
-    String test(){
-        return "tester";
+    @GetMapping("/{email}/{code}")
+    ResponseEntity<?> validate(@PathVariable String email, @PathVariable String code){
+        boolean result = registerService.validate(email, code);
+        if(result){return new ResponseEntity<>(HttpStatus.OK);}
+        else  return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-
-
 
 }

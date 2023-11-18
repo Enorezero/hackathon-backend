@@ -3,6 +3,7 @@ package com.example.hackathonbackend.controller;
 import com.example.hackathonbackend.model.Intern;
 import com.example.hackathonbackend.model.Internship;
 import com.example.hackathonbackend.service.internshipservice.InternshipService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,11 @@ import java.util.List;
 @RequestMapping("/internship")
 public class InternshipController {
 
+    @Autowired
     InternshipService internshipService;
     @PostMapping("/add")
     ResponseEntity<?> addedInternship(@RequestBody Internship internship){
+        System.out.println(internship);
         internshipService.addInternship(internship);
         return new ResponseEntity<>(HttpStatus.OK);
     }
