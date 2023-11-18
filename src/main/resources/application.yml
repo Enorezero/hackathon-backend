@@ -6,3 +6,7 @@ spring:
 
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+  docker:
+    compose:
+      enabled: true

@@ -3,6 +3,7 @@ package com.example.hackathonbackend.controller;
 import com.example.hackathonbackend.model.Intern;
 import com.example.hackathonbackend.model.Internship;
 import com.example.hackathonbackend.service.internshipservice.InternshipService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/internship")
+@Tag(name = "Контроллер стажировок", description = "Содержит CRUD операции для модели стажировки")
 public class InternshipController {
 
     @Autowired
