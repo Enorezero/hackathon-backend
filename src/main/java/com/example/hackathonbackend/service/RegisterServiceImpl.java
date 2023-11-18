@@ -1,38 +1,37 @@
 package com.example.hackathonbackend.service;
 
 import com.example.hackathonbackend.model.BaseInfo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
+
+import java.util.Random;
 
 @Service
 public class RegisterServiceImpl implements RegisterService{
 
-//    @Autowired
-//    private  JavaMailSender emailSender;
+    @Autowired
+    private JavaMailSender emailSender;
 //    @Override
-//    public Answer registerTrainee(BaseInfo info) {
-//        return null;
+//    public void registerTrainee(BaseInfo info) {
 //    }
 
-//    @Override
-//    public Answer sendToEmail(String email) {
-//        try {
-////            System.out.println("Ошибка 1");
-////            Random random = new Random();
-////            String code = String.format("%04d", random.nextInt(10000));
-////            SimpleMailMessage mailMessage = new SimpleMailMessage();
-////            mailMessage.setFrom(" ");
-////            mailMessage.setTo(email);
-////            mailMessage.setSubject("Код активации");
-////            mailMessage.setText(code);
-////            System.out.println("Ошибка 2");
-////            emailSender.send(mailMessage);
-////            System.out.println("Ошибка 3");
-////            Answer answer = new Answer();
-////            answer.setText("Код успешно отправлен");
-////            return answer;
-//        }
-//        catch (Exception e){
-//            throw new RuntimeException();
-//        }
-//    }
+    @Override
+    public void sendToEmail(String email) {
+        try {
+            Random random = new Random();
+            String code = String.format("%04d", random.nextInt(10000));
+            SimpleMailMessage mailMessage = new SimpleMailMessage();
+            mailMessage.setFrom("den1s.starts@yandex.ru");
+            mailMessage.setTo(email);
+            mailMessage.setSubject("Код активации");
+            mailMessage.setText(code);
+            System.out.println(mailMessage);
+            emailSender.send(mailMessage);
+        }
+        catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
 }

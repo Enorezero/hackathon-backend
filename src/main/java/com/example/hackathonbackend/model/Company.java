@@ -1,6 +1,7 @@
 package com.example.hackathonbackend.model;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.FieldType;
 import org.springframework.data.mongodb.core.mapping.MongoId;
@@ -8,8 +9,8 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 import java.util.List;
 
 @Data
+@Document("Company")
 public class Company {
-
     @MongoId(FieldType.OBJECT_ID)
     String id;
     String organization;

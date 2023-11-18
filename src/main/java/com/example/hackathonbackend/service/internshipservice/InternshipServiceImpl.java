@@ -1,6 +1,7 @@
 package com.example.hackathonbackend.service.internshipservice;
 
 import com.example.hackathonbackend.model.Internship;
+import com.example.hackathonbackend.repository.CompanyRepository;
 import com.example.hackathonbackend.repository.InternshipRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,9 @@ public class InternshipServiceImpl implements InternshipService{
 
     @Autowired
     InternshipRepository internshipRepository;
+
+    @Autowired
+    CompanyRepository companyRepository;
     public void addInternship(Internship internship){
         internshipRepository.save(internship);
     }

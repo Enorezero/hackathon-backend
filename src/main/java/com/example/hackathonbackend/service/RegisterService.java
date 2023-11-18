@@ -7,5 +7,5 @@ public interface RegisterService {
 
     //Answer registerTrainee(BaseInfo info);
 
-//    Answer sendToEmail(String email);
+    void sendToEmail(String email);
 }
